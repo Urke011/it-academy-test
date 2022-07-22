@@ -1,0 +1,59 @@
+﻿@using FirstMvcApp.Models
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+@section Scripts
+{
+<script type="text/javascript" src="~/lib/jquery/dist/jquery.js"></script>
+}
+
+
+@if (TempData["FirstName"] != null)
+{
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        You successfully add new attendant: <strong>@TempData["firstName"]</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+
+}
+
+<div class="col-md-6">
+    <div class="card mb-3">
+        <div class="card-header">
+            Add attendant:
+        </div>
+        <div class="card-body">
+            @using (Html.BeginForm("Index", "Home", FormMethod.Post))
+                        {
+                <div class="form-floating mb-3">
+                    @Html.TextBox("firstName", null, new { @class = "form-control", placeholder = "First name", autocomplete = "off" })
+                    @Html.Label("firstName", "First name:")
+                </div>
+                <div class="form-floating mb-3">
+                    @Html.TextBox("lastName", null, new { @class = "form-control", placeholder = "Last name", autocomplete = "off" })
+                    @Html.Label("lastName", "Last name:")
+                </div>
+                <div class="form-floating mb-3">
+                    @Html.TextBox("dateOfBirth", null, new { @class = "form-control", type = "date", placeholder = "Date of Birth", autocomplete = "off" })
+                    @Html.Label("dateOfBirth", "Date of Birth:")
+                </div>
+                <input class="btn btn-primary" type="submit" value="Add">
+                        }
+        </div>
+    </div>
+</div>
+
+<div class="col-md-6">
+    <partial name="_PersonList" />
+</div>
+
+
+
+
+
+
+
+
+

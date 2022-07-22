@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css">
+</head>
+<body>
+
+    <header class="container">
+        <div class="row text-center">
+            <div class="col">
+                <h1>Check-In System</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <hr />
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="row">
+
+            @RenderBody()
+
+        </div>
+    </div>
+
+    <footer class="container">
+        <div class="row text-center">
+            <div class="col">
+                <p>All right reserved. <a href="http://www.link-group.eu/">Link Group</a> @DateTime.Now.Year</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    @RenderSection("Scripts", false)
+
+</body>
+</html>
